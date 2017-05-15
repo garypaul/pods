@@ -182,8 +182,8 @@ tbody.pods-manage-list tr.pods-manage-row th.pods-manage-sort {
 
 tbody.pods-manage-list tr.pods-manage-row th.pods-manage-sort img {
     vertical-align: top;
-    margin-top: 7px;
-    margin-left: -5px;
+    margin-top: 4px;    /* subtracted 3px border */ 
+    margin-left: -8px; /* subtracted 3px border */
 }
 
 tbody.pods-manage-list tr.pods-manage-row td > span.pods-manage-row-more {
@@ -221,7 +221,29 @@ tbody.pods-manage-list tr.pods-field-new div.pods-manage-row-wrapper .pods-manag
 tbody.pods-manage-list tr.pods-field-new div.pods-manage-row-wrapper .pods-manage-row-save a.pods-button-add {
     display: inline-block;
 }
+/*
+ * Manage Pods Fields Status Indicators
+ */
 
+tbody.pods-manage-list tr.pods-manage-row th {
+    border: 0px solid transparent; // apply default border size
+    padding-left: 3px; /* fix for sortable handle */
+    transition: border-color 300ms ease, border-width 300ms ease; /* ooh, fancy! */
+}
+
+tbody.pods-manage-list tr.pods-submittable-fields th {
+    border-width: 3px 0 3px 3px;
+    border-color: transparent transparent transparent #95BF3B; /* pods green */ 
+}
+tbody.pods-manage-list tr.pods-manage-row-expanded th,
+tbody.pods-manage-list tr.pods-field-new th {
+    border-width: 3px 0 3px 3px;
+    border-color: transparent transparent transparent #D8A32D; /* new unsaved fields are orange */
+}
+tbody.pods-manage-list tr.pods-field-init th {
+    border-width: 0;
+    border-color: transparent; /* Ensure initial (unchanged) are not highlighted */
+}
 /*
  * Pods Toggled
  */
